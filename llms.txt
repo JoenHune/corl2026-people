@@ -1,0 +1,19 @@
+# CoRL 2026 people directory
+
+Public research data, snapshot 2026-11-01. 4066 author identifiers, 687 accepted papers.
+All paths below are relative to this file's website root.
+
+- assistant.html: reading and recommendation instructions with JSON example.
+- data/authors-index.json: small entry manifest; topic indexes and 100-author chunks.
+- people/index.html: all-author HTML directory with linked pagination, readable without scripts.
+- people/<name>-<id-hash>/index.html: individual public research profile.
+- people/<name>-<id-hash>/profile.json: same profile as structured data.
+- authors.html?author=<encoded-author-id>: open the author in the interactive workbench.
+
+Start with the manifest and the relevant topic chunks; then read candidate profiles.
+Use stable author IDs, deduplicate candidates, and substantiate reasons with paper IDs.
+Do not infer personal identity from names. name_style describes spelling only.
+First position, confirmed equal contribution, correspondence, and project leadership are distinct.
+Oral/Spotlight are paper-level signals. Attendance and unknown roles are unconfirmed.
+Private lists, groups and notes are not part of public data and cannot be read via these URLs.
+Return JSON: {"schema_version":1,"source":"assistant name","recommendations":[{"author_id":"...","reason":"...","paper_ids":["..."],"group_names":["..."]}]}.

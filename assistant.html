@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="CoRL 2026 作者、研究内容与论文来源"><title>助手资料 · CoRL 2026</title><link rel="stylesheet" href="people/people.css"></head>
+<body><header><a class="site-brand" href="authors.html" aria-label="CoRL 2026 会场选人"><img class="site-logo" src="assets/corl2026-logo.jpg" width="104" height="52" alt="CoRL 2026 官方标识"><span class="site-brand-year">2026</span></a><nav aria-label="导航"><a href="authors.html">选人</a><a href="people/index.html">作者目录</a><a href="assistant.html">助手资料</a></nav></header><main><h1>助手资料</h1>
+<p><a href="data/authors-index.json">作者与主题索引 JSON</a> · <a href="people/index.html">纯文字作者目录</a> · <a href="llms.txt">简短读取说明</a></p>
+<h2>查找与推荐</h2><ol><li>先读取作者索引，按兴趣选择研究方向，再读取该方向的作者分块；每块最多 100 人。</li><li>查看候选人的独立资料页或 profile.json，结合论文、署名角色、单位和实验平台给出理由。</li><li>返回作者 ID、推荐理由、支撑论文 ID 和建议组名。推荐与事实分开，优先引用具体论文。</li></ol>
+<p>每个作者都有固定资料链接，无需执行页面脚本。JSON 中的路径相对于网站根目录。目录按姓名分页，主题索引允许同一人重复出现，推荐请按 author_id 去重。</p>
+<h2>返回格式</h2><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;source&quot;: &quot;Grok Bot&quot;,
+  &quot;recommendations&quot;: [
+    {
+      &quot;author_id&quot;: &quot;~Ruijie_Zheng1&quot;,
+      &quot;reason&quot;: &quot;EgoScale 涉及人类第一视角数据与灵巧操作，适合关注跨构型数据迁移的人。&quot;,
+      &quot;paper_ids&quot;: [
+        &quot;WF4X17Al2r&quot;
+      ],
+      &quot;group_names&quot;: [
+        &quot;灵巧操作&quot;
+      ]
+    }
+  ]
+}</pre>
+<p>将以上 JSON 粘贴到工作台的“导入推荐”，或保存为文件导入。group_names 可为空数组；同名组复用，成员按 ID 去重。不要把个人备注写进公共资料。</p>
+<h2>使用边界</h2><ul><li>“首位署名”不是自动确认的一作或项目主导；共同一作、通讯、项目负责人分别保留已核原文依据。</li><li>拼音姓名仅按拼写匹配，不表示个人身份。</li><li>Oral / Spotlight 是参与论文的大会展示信号，不是个人贡献或长期影响力评分。</li><li>论文展示日期不表示作者本人确认到场。未核实信息保持未知。</li><li>个人必见名单、分组和备注保存在使用者浏览器中。远程读取公开网站无法取得这些内容；用户可自行复制筛选条件或导入推荐。</li></ul>
+<p>具备浏览器操作能力的助手也可使用工作台中的常规搜索、勾选、展开及分组控件。具体兼容性取决于助手的浏览和操作能力。</p></main></body></html>

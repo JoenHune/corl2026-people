@@ -1,0 +1,15 @@
+{
+  "name": "CoRL 2026 official conference logo",
+  "asset": "corl2026-logo.jpg",
+  "publisher": "CoRL Organization Board",
+  "official_website": "https://www.corl.org/",
+  "source_page": "https://www.linkedin.com/posts/corl-organization-board-499a28310_corl2026-robotlearning-robotics-activity-7431935361615859712-7djx",
+  "source_asset_url": "https://media.licdn.com/dms/image/v2/D4D22AQEOtk32B5XW0g/feedshare-shrink_800/B4DZyOJ1K_HEAg-/0/1771911468285?e=2147483647&t=MOpPDOLNPuj6lsvJVTr9o-nGB5r6oOiP1964WqWJgWY&v=beta",
+  "retrieved_at": "2026-11-02",
+  "media_type": "image/jpeg",
+  "width": 800,
+  "height": 400,
+  "sha256": "899aef11430ad24f80841d0cfc7a8701b1999f9454b1a3383851a284c8013cd3",
+  "modifications": "None. Original image bytes downloaded from the official organization board announcement; layout scales the image without changing its pixels.",
+  "usage_note": "Conference logo used to identify CoRL 2026; the research tool remains unofficial as stated in its footer."
+}

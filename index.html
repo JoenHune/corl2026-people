@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#bf5700">
+  <meta name="description" content="CoRL 2026 作者研究资料、必见名单与个人分组。">
+  <title>CoRL 2026 · 会场选人</title>
+  <link rel="stylesheet" href="authors.css?v=20261102-official-logo1">
+</head>
+<body>
+  <a class="skip-link" href="#people-view">跳到作者名单</a>
+  <header class="app-header">
+    <a class="brand" href="authors.html" aria-label="CoRL 2026 会场选人"><img class="brand-logo" src="assets/corl2026-logo.jpg" width="104" height="52" alt="CoRL 2026 官方标识"><span class="brand-year">2026</span></a>
+    <nav class="view-nav" aria-label="主要功能">
+      <button id="view-people" class="view-button is-active" data-view="people" type="button" aria-pressed="true">选人</button>
+      <button id="view-groups" class="view-button" data-view="groups" type="button" aria-pressed="false">分组</button>
+    </nav>
+    <details id="tools-menu" class="tools-menu">
+      <summary aria-label="打开工具菜单">工具 <span aria-hidden="true">⌄</span></summary>
+      <div class="tools-popover" aria-label="工具">
+        <button id="open-import" type="button">导入助手推荐</button>
+        <button id="copy-prompt" type="button">复制推荐请求</button>
+        <a href="assistant.html">助手使用说明 <span aria-hidden="true">↗</span></a>
+        <hr>
+        <button id="backup-workspace" type="button">备份个人工作区</button>
+        <button id="restore-workspace" type="button">恢复个人工作区</button>
+        <button id="export-people" type="button">导出当前名单</button>
+      </div>
+    </details>
+  </header>
+  <main class="app-main">
+    <div id="error-banner" class="error-banner" role="alert" hidden></div>
+    <section id="people-view" aria-label="选人">
+      <div class="filters">
+        <label class="search-field"><span class="sr-only">搜索作者、单位、论文或研究方向</span><span class="search-symbol" aria-hidden="true">⌕</span><input id="author-query" type="search" placeholder="搜索姓名、单位、论文或研究方向" autocomplete="off"></label>
+        <label class="field topic-field"><span>研究方向</span><select id="topic-filter"><option value="">全部方向</option></select></label>
+        <div class="field region-field"><span id="region-label">单位地区</span><details id="institution-region" class="region-picker"><summary aria-labelledby="region-label region-selection"><span id="region-selection">全部地区</span><span class="chevron" aria-hidden="true">⌄</span></summary><div class="region-popover"><div class="popover-heading"><span>多选 · 命中任一地区</span><button id="regions-clear" type="button">清空</button></div><div id="region-checkboxes" role="group" aria-labelledby="region-label"></div></div></details></div>
+        <label class="pinyin-field"><input id="pinyin-filter" type="checkbox"><span>拼音姓名</span></label>
+        <details id="more-filters" class="more-filters"><summary>更多条件 <span class="chevron" aria-hidden="true">⌄</span></summary><div class="advanced-filter-panel">
+          <label class="field"><span>署名角色</span><select id="role-filter"><option value="all">全部角色</option><option value="first">首位署名</option><option value="cofirst">已核共同一作</option><option value="corresponding">已核通讯作者</option><option value="new">已核新晋独立研究者</option><option value="multiple">多篇参与</option></select></label>
+          <label class="field"><span>大会展示</span><select id="presentation-filter"><option value="all">全部形式</option><option value="Oral">Oral</option><option value="Spotlight">Spotlight</option><option value="Poster only">Poster</option></select></label>
+          <label class="field"><span>实验硬件</span><select id="hardware-filter"><option value="all">全部硬件</option></select></label>
+          <label class="field"><span>单位口径</span><select id="affiliation-scope"><option value="direct">作者直接对应单位</option><option value="associated">含公开资料与论文线索</option></select></label>
+          <label class="field advanced-institution"><span>仅筛单位</span><input id="institution-filter" type="search" placeholder="输入单位名称"></label>
+          <button id="reset-filters" class="button text-button" type="button">重置所有条件</button>
+        </div></details>
+      </div>
+      <div class="results-toolbar"><label class="scope-field"><span class="sr-only">查看名单</span><select id="people-scope"><option value="all">全部作者</option><option value="mustmeet">必见名单</option></select></label><span id="author-result-count" class="result-count" aria-live="polite">正在载入</span><label class="sort-field"><span>排序</span><select id="author-sort"><option value="recognition">Oral / Spotlight</option><option value="papers">署名论文数</option><option value="first">首位署名数</option><option value="name">姓名 A–Z</option></select></label></div>
+      <div id="bulk-toolbar" class="bulk-toolbar" hidden><label class="select-page-label"><input id="select-page" type="checkbox"><span>本页</span></label><span id="selection-count">已选 0 人</span><button id="bulk-mustmeet" class="button" type="button">标记必见</button><button id="bulk-group" class="button primary" type="button">加入分组</button><button id="clear-selection" class="button text-button" type="button">取消选择</button></div>
+      <div class="people-workbench"><section class="author-directory" aria-label="作者名单"><div id="author-list" class="author-list"></div><div class="pagination"><button id="authors-prev" class="button" type="button" aria-label="上一页作者">← 上一页</button><span id="authors-page" class="page-number">1 / 1</span><button id="authors-next" class="button" type="button" aria-label="下一页作者">下一页 →</button></div></section><aside id="author-detail" class="author-detail" aria-label="作者介绍"><div class="empty-state">选择作者查看介绍。</div></aside></div>
+    </section>
+    <section id="groups-view" aria-label="我的分组" hidden><div class="section-heading"><h1>我的分组</h1><button id="new-group" class="button primary" type="button">＋ 新建组</button></div><div id="group-board" class="group-board"></div></section>
+    <footer class="app-footer"><span>CoRL 2026 · 非官方研究工具</span><a href="assistant.html">资料与助手说明 ↗</a></footer>
+  </main>
+  <dialog id="group-dialog" class="editor-dialog" aria-labelledby="group-dialog-title"><form id="group-form"><div class="dialog-heading"><h2 id="group-dialog-title">新建分组</h2><button class="icon-button" type="button" data-close-dialog aria-label="关闭分组编辑">×</button></div><label class="field"><span>组名</span><input id="group-name" type="text" maxlength="100" autocomplete="off" required placeholder="例如：灵巧操作 · 11/10 晚餐"></label><label class="field"><span>组说明 <span class="muted">选填</span></span><textarea id="group-note" rows="3" maxlength="10000" placeholder="讨论主题或选人思路"></textarea></label><p id="group-error" class="inline-error" role="alert" hidden></p><div class="dialog-actions"><button class="button" type="button" data-close-dialog>取消</button><button id="group-save" class="button primary" type="submit">保存分组</button></div></form></dialog>
+  <dialog id="assign-dialog" class="editor-dialog" aria-labelledby="assign-title"><div class="dialog-heading"><h2 id="assign-title">加入分组</h2><button class="icon-button" type="button" data-close-dialog aria-label="关闭加入分组">×</button></div><div id="assign-options" class="assign-options" role="group" aria-label="选择分组"></div><div class="dialog-actions split-actions"><button id="assign-new-group" class="button text-button" type="button">＋ 新建组</button><div><button class="button" type="button" data-close-dialog>取消</button><button id="assign-apply" class="button primary" type="button">加入所选组</button></div></div></dialog>
+  <dialog id="import-dialog" class="import-dialog" aria-labelledby="import-title"><div class="dialog-heading"><h2 id="import-title">导入助手推荐</h2><button class="icon-button" type="button" data-close-dialog aria-label="关闭推荐导入">×</button></div><label class="field"><span>粘贴推荐 JSON</span><textarea id="import-text" rows="9" spellcheck="false" placeholder="粘贴包含 author_id、reason、paper_ids 和 group_names 的推荐结果"></textarea></label><label class="field import-file-field"><span>或选择 JSON 文件</span><input id="import-file" type="file" accept=".json,application/json"></label><div id="import-result" class="import-result" role="status" aria-live="polite"></div><div class="dialog-actions split-actions"><button id="undo-import" class="button text-button" type="button" disabled>撤销本次导入</button><div><button class="button" type="button" data-close-dialog>关闭</button><button id="import-apply" class="button primary" type="button">导入推荐</button></div></div></dialog>
+  <dialog id="profile-dialog" class="profile-dialog" aria-label="作者介绍"><div id="profile-dialog-content"></div></dialog>
+  <input id="restore-file" type="file" accept=".json,application/json" aria-label="恢复个人工作区文件" hidden>
+  <div id="status" class="status-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="authors-data.js?v=20261102-people1"></script>
+  <script src="workspace.js?v=20261102-people1"></script>
+  <script src="author-details.js?v=20261102-people1"></script>
+  <script src="authors.js?v=20261102-people1"></script>
+</body>
+</html>
